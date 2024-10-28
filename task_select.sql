@@ -26,10 +26,14 @@ FROM artists
 WHERE artist_name NOT LIKE '% %';
 
 -- Название треков, которые содержат слово "мой" или "my"
+-- Исправлено
 
 SELECT track_title
 FROM tracks
-WHERE track_title ILIKE '%мой%' OR track_title ILIKE '%my%';
+WHERE (track_title ILIKE 'мой %' OR track_title ILIKE 'my %')
+   OR(track_title ILIKE '% мой' OR track_title  ILIKE '% my')
+   OR(track_title ILIKE '% мой %' OR track_title ILIKE '% my %')
+   OR(track_title ILIKE 'мой' OR track_title ILIKE 'my');
 
 -- Количество исполнителей в каждом жанре
 
