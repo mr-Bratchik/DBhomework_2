@@ -35,6 +35,13 @@ WHERE (track_title ILIKE 'мой %' OR track_title ILIKE 'my %')
    OR(track_title ILIKE '% мой %' OR track_title ILIKE '% my %')
    OR(track_title ILIKE 'мой' OR track_title ILIKE 'my');
 
+-- Название треков, которые содержат слово "мой" или "my" вариант 2
+
+SELECT track_title
+FROM tracks
+WHERE track_title ~* '\yмой\y' 
+   OR track_title ~* '\ymy\y';
+
 -- Количество исполнителей в каждом жанре
 
 SELECT g.genre_name AS Жанр, COUNT(ag.artist_id) AS Количество_исполнителей
