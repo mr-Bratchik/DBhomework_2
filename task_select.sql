@@ -70,8 +70,9 @@ WHERE ar.artist_name NOT IN (
 );
 
 -- Названия сборников, в которых присутствует "The Beatles"
+-- Исправлено выводил один сборник 2 раза, добавлен 'DISTINCT'
 
-SELECT c.collection_name AS Сборник
+SELECT DISTINCT c.collection_name AS Сборник
 FROM collections c
 JOIN collection_tracks ct ON c.collection_id = ct.collection_id
 JOIN tracks t ON ct.track_id = t.track_id
