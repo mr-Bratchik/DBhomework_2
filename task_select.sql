@@ -57,12 +57,17 @@ JOIN tracks t ON a.album_id = t.album_id
 GROUP BY a.album_title;
 
 -- Все исполнители, которые не выпустили альбомы в 2020 году
+-- Исправлено
 
-SELECT ar.artist_name AS Исполнитель
+SELECT ar.artist_name AS Исполнитель 
 FROM artists ar
-LEFT JOIN artist_albums aa ON ar.artist_id = aa.artist_id
-LEFT JOIN albums al ON aa.album_id = al.album_id AND al.release_year = 2020
-WHERE al.album_id IS NULL;
+WHERE ar.artist_name NOT IN (
+    SELECT ar2.artist_name
+    FROM artists ar2 
+    JOIN artist_albums aa ON ar2.artist_id = aa.artist_id 
+    JOIN albums al ON aa.album_id = al.album_id 
+    WHERE al.release_year = 2020 
+);
 
 -- Названия сборников, в которых присутствует "The Beatles"
 
