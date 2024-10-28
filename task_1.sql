@@ -11,6 +11,7 @@ INSERT INTO artists (artist_name) VALUES ('The Beatles');
 INSERT INTO artists (artist_name) VALUES ('Michael Jackson');
 INSERT INTO artists (artist_name) VALUES ('AC/DC');
 INSERT INTO artists (artist_name) VALUES ('Pink Floyd');
+INSERT INTO artists (artist_name) VALUES ('Aurora');
 
 
 -- Альбомы
@@ -18,7 +19,7 @@ INSERT INTO artists (artist_name) VALUES ('Pink Floyd');
 INSERT INTO albums (album_title, release_year) VALUES ('Abbey Road', 1969);
 INSERT INTO albums (album_title, release_year) VALUES ('Thriller', 1982);
 INSERT INTO albums (album_title, release_year) VALUES ('Back in Black', 1980);
-
+INSERT INTO albums (album_title, release_year) VALUES ('Dreams', 2020);
 
 -- Треки 
 
@@ -28,6 +29,7 @@ INSERT INTO tracks (track_title, album_id, duration) VALUES ('Thriller', 2, 357)
 INSERT INTO tracks (track_title, album_id, duration) VALUES ('Billie Jean', 2, 294); -- 4:54
 INSERT INTO tracks (track_title, album_id, duration) VALUES ('Hells Bells', 3, 312); -- 5:12
 INSERT INTO tracks (track_title, album_id, duration) VALUES ('Back in Black', 3, 255); -- 4:15
+INSERT INTO tracks (track_title, album_id, duration) VALUES ('My Song', 4, 215); -- 3:35
 
 
 -- Сборники
@@ -47,14 +49,15 @@ INSERT INTO artist_genres (artist_id, genre_id) VALUES (2, 2); -- Michael Jackso
 INSERT INTO artist_genres (artist_id, genre_id) VALUES (3, 1); -- AC/DC - Rock
 INSERT INTO artist_genres (artist_id, genre_id) VALUES (4, 1); -- Pink Floyd - Rock
 INSERT INTO artist_genres (artist_id, genre_id) VALUES (4, 3); -- Pink Floyd - Jazz
+INSERT INTO artist_genres (artist_id, genre_id) VALUES (5, 2); -- Aurora - Pop
 
 
-
--- Связи между артистами и альбомами
+-- Связи между артистами и альбомами 
 
 INSERT INTO artist_albums (album_id, artist_id) VALUES (1, 1); -- Abbey Road - The Beatles
 INSERT INTO artist_albums (album_id, artist_id) VALUES (2, 2); -- Thriller - Michael Jackson
 INSERT INTO artist_albums (album_id, artist_id) VALUES (3, 3); -- Back in Black - AC/DC
+INSERT INTO artist_albums (album_id, artist_id) VALUES (4, 5); -- Dreams - Aurora
 
 
 
